@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 public class FileHandler {
     String path = "C:\\Users\\Ася\\IdeaProjects\\Progect1_OzoneFitnes\\Members.txt";
-
+    String temp = "C:\\Users\\Ася\\IdeaProjects\\Progect1_OzoneFitnes\\MembersTemp.txt";
     //методы
     public LinkedList<Member> readFile(){
         String line;
@@ -40,7 +40,7 @@ public class FileHandler {
         }
     }
     public void overwriteFile(LinkedList<Member> m){
-        String temp = "C:\\Users\\Ася\\IdeaProjects\\Progect1_OzoneFitnes\\MembersTemp.txt";
+        
         try {
             File nf = new File(temp);
             nf.createNewFile();
@@ -64,10 +64,8 @@ public class FileHandler {
 
         File tempFile = new File(temp);
         if (tempFile.exists()) {
-            File nwFile = new File("C:\\Users\\Ася\\IdeaProjects\\Progect1_OzoneFitnes\\Members.txt");
+            File nwFile = new File(path);
             boolean rename = tempFile.renameTo(nwFile);
-            //В переменную path записываем новое название файла(file2.getName()) и его путь(file2.getParent())
-            //path = renewFile.getParent() + "//"+renewFile.getName();
             if (!rename){
                 System.out.println("error rename");
             }
